@@ -1,5 +1,5 @@
 export function getAppointmentsForDay(state, day) {
-  const  selectedDay = state.days.filter(eachday => eachday.name === day);
+  const selectedDay = state.days.filter(eachday => eachday.name === day);
   if (selectedDay.length !== 0) {
     const filteredAppointmentsId = selectedDay[0].appointments;
     const filteredAppointments = filteredAppointmentsId.map(id => {
@@ -9,6 +9,30 @@ export function getAppointmentsForDay(state, day) {
     return filteredAppointments;
   } else {
     return [];
+  }
+}
+
+export function getInterview (state, interview) {
+  if (interview) {
+    const interviewerId = interview.interviewer + '';
+    const interviewerInfor = state.interviewers[interviewerId]
+  
+    return {
+      "student": interview.student,
+      "interviewer": interviewerInfor
+    }
+  } else {
+    return null
+  }
+
+}
+
+export function getInterviewersForDay (state, day) {
+  const selectedDay = state.days.filter(eachday => eachday.name === day);
+  if (state.days.length) {
+    const interviewersIdArray = selectedDay[0].interviewers
+    const interviewersArray = interviewersIdArray.map((id) => state.interviewers[id + ''])
+    return interviewersArray
   }
 }
 
@@ -39,17 +63,18 @@ export function getAppointmentsForDay(state, day) {
 //       time: "4pm",
 //       interview: { student: "Chad Takahashi", interviewer: 2 }
 //     }
+//   },
+
+//   interviewers: {
+//     "1": {  
+//       "id": 1,
+//       "name": "Sylvia Palmer",
+//       "avatar": "https://i.imgur.com/LpaY82x.png"
+//     },
+//     "2": {
+//       id: 2,
+//       name: "Tori Malcolm",
+//       avatar: "https://i.imgur.com/Nmx0Qxo.png"
+//     }
 //   }
 // };
-
-// function getAppointmentsForDay(state, day) {
-//   const filteredAppointmentsId = state.days.filter(eachday => eachday.name === day)[0].appointments;
-//   console.log(filteredAppointmentsId)
-//   filteredAppointments = filteredAppointmentsId.map(id => {
-//     id = id + '';
-//     return state.appointments[id]
-//   })
-//   return filteredAppointments;
-// }
-
-// console.log(getAppointmentsForDay(state, "Tuesday"))
