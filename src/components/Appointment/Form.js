@@ -51,9 +51,6 @@ export default function Form(props) {
           />) : (<p></p>)
         }
 
-
-
-
       </section>
       <section className="appointment__card-right">
         <section className="appointment__actions">

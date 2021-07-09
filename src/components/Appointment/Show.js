@@ -5,7 +5,6 @@ export default function Show(props) {
   let student = ''
   let interviewer = ''
   
-  console.log(props)
   if (props.student) {
     student = props.student;
     interviewer = props.interviewer.name
