@@ -20,9 +20,9 @@ export default function Application(props) {
   
   const appointment = dailyAppointments.map((appointment) => {
     const interview = getInterview(state, appointment.interview);
-    // console.log(appointment)
-    // console.log('.......',interview)
-    // console.log(dailyAppointments)
+    // console.log('appointment',appointment)
+    // console.log('interview',interview)
+    // console.log('dailyAppointments', dailyAppointments)
     // console.log("interviewforday:", InterviewersForDay)
     return (
       <Appointment
@@ -71,6 +71,7 @@ export default function Application(props) {
         />
       </section>
       <section className="schedule">
+        {console.log(appointment)}
         {appointment}
         <Appointment key="last" time="5pm" />        
       </section>
