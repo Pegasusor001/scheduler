@@ -5,10 +5,14 @@ export default function Show(props) {
   let student = ''
   let interviewer = ''
   
+  console.log(props)
   if (props.student) {
     student = props.student;
-    interviewer = props.interviewer.name
   } 
+  
+  if (props.interviewer) {
+    interviewer = props.interviewer.name;
+  }
 
   return (
     <main className="appointment__card appointment__card--show">

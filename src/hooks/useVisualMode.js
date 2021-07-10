@@ -21,6 +21,5 @@ export default function useVisualMode(initial) {
     setMode(history.slice(-2)[0])
     setHistory(prev => prev.slice(0,-1))
   }
-  console.log(history)
   return { mode, transition, back };
 }
