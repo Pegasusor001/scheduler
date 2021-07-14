@@ -1,9 +1,6 @@
 import React from "react";
 
-import { fireEvent } from "@testing-library/react";
-
-import { render, cleanup } from "@testing-library/react";
-
+import { render, cleanup, fireEvent} from "@testing-library/react";
 import Form from "components/Appointment/Form";
 
 afterEach(cleanup);
@@ -21,6 +18,7 @@ describe("Form", () => {
     const { getByPlaceholderText } = render(
       <Form interviewers={interviewers} />
     );
+
     expect(getByPlaceholderText("Enter Student Name")).toHaveValue("");
   });
 
@@ -40,6 +38,8 @@ describe("Form", () => {
     fireEvent.click(getByText("Save"));
 
     expect(getByText(/student name cannot be blank/i)).toBeInTheDocument();
+      // regualar expression, student name cannot be blank /i: case sensetive matching just add
+
     expect(onSave).not.toHaveBeenCalled();
   });
 
@@ -82,6 +82,8 @@ describe("Form", () => {
     fireEvent.change(getByPlaceholderText("Enter Student Name"), {
       target: { value: "Lydia Miller-Jones" }
     });
+
+    // set the value on target 
 
     fireEvent.click(getByText("Cancel"));
 
