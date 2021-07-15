@@ -1,5 +1,9 @@
 # Interview Scheduler
 
+## Description 
+
+Help student working with APP and 
+
 ## Setup
 
 Install dependencies with `npm install`.
@@ -23,8 +27,9 @@ npm run storybook
 ```
 
 ## Screen Shot 
-Home Page: https://github.com/Pegasusor001/scheduler/blob/master/screenshoot/Home%20Page.png
+!["Home Page"](https://github.com/Pegasusor001/scheduler/blob/master/screenshoot/Home%20Page.png)
 
-Add an Interview: https://github.com/Pegasusor001/scheduler/blob/master/screenshoot/Add%20an%20Interview.png
+!["Add an Interview"](https://github.com/Pegasusor001/scheduler/blob/master/screenshoot/Add%20an%20Interview.png)
 
-Delete an Interview: https://github.com/Pegasusor001/scheduler/blob/master/screenshoot/Delete%20an%20Interview.png
+!["Delete an Interview"](https://github.com/Pegasusor001/scheduler/blob/master/screenshoot/Delete%20an%20Interview.png)
+
