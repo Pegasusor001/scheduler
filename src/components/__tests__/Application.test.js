@@ -63,10 +63,11 @@ it("loads data, cancels an interview and increases the spots remaining for Monda
     // 3. Click the "Delete" button on the booked appointment with the name archie cohen.
     const appointments = getAllByTestId(container, "appointment");
     
-    const selectedAppointment = appointments.find((appointment) => (
-      queryByText(appointment, "Archie Cohen")
+    const selectedAppointment = appointments.find((appointment) => {
+      return queryByText(appointment, "Archie Cohen")
+      // return queryByText(appointment, "1pm" )
       // why I have to use query ???
-    ));
+    });
     fireEvent.click(getByAltText(selectedAppointment, "Delete"));
     // // 4. Check that the confirmation message is shown.
     expect(getByText(selectedAppointment, /Delete your Appointment?/i));
@@ -119,6 +120,8 @@ it("loads data, cancels an interview and increases the spots remaining for Monda
     await waitForElement(() => getByText(container, "Archie Cohen"));
 
     const appointments = getAllByTestId(container, "appointment");
+    // get all returns an Array. 
+    // why it returns an array? 
     const appointment = appointments[0];
   
     fireEvent.click(getByAltText(appointment, "Add"));
@@ -128,13 +131,13 @@ it("loads data, cancels an interview and increases the spots remaining for Monda
     fireEvent.click(getByAltText(appointment, "Sylvia Palmer"));
     fireEvent.click(getByText(appointment, "Save"));
 
-    expect(getByText(appointment, "Saving data"));
-    const day = getAllByTestId(container, "day").find(day =>
-      queryByText(day, "Monday")
-    );
-  
-    expect(getByText(day, "1 spot remaining")).toBeInTheDocument();
+    await waitForElement(() => getByText(appointment, "Saving data"));
 
+    console.log(prettyDOM(container))
+    // console.log(prettyDOM(appointment))
+
+    expect(getByText(appointment, /error/i)).toBeInTheDocument();
+    // why I cannot use appointments?
   });
 
   it.only("shows the delete error when failing to delete an existing appointment", async() => {
@@ -149,16 +152,15 @@ it("loads data, cancels an interview and increases the spots remaining for Monda
     fireEvent.click(queryByText(selectedAppointment, "Confirm"));
     expect(getByText(selectedAppointment, "deleting data"));
     
-    // 7. Wait until the element with the "deleting" is displayed.
     await waitForElementToBeRemoved(() => getByText(selectedAppointment, "deleting data"));
-    // 8. Check that the DayListItem with the text "Monday" also has the text "2 spots remaining".
-    const day = getAllByTestId(container, "day").find(day =>
-      queryByText(day, "Monday")
-    );
-  
-    expect(getByText(day, "1 spot remaining")).toBeInTheDocument();
-    
-    // 4. Check that the confirmation message is shown.
-    //expect(getByText(selectedAppointment, "Delete the Appointment?"));
+    // waitForElementToBeRemoved if anything is removed from the dom, execute the callback. 
+    // waitforelement: generic; 
+    // await: if something asychrous, use the key word await, 
+    // if there is a asyschro, await + function (ayschrous func)
+    //waitForElement ()
 
+    // should be same as waitforElement ?
+
+    expect(getByText(selectedAppointment, /error/i)).toBeInTheDocument();
+    // i case insensetive; 
   });
