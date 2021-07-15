@@ -23,8 +23,8 @@ npm run storybook
 ```
 
 ## Screen Shot 
-Home Page: 
+Home Page: https://github.com/Pegasusor001/scheduler/blob/master/screenshoot/Home%20Page.png
 
-Add an Interview: 
+Add an Interview: https://github.com/Pegasusor001/scheduler/blob/master/screenshoot/Add%20an%20Interview.png
 
-Delete an Interview:
+Delete an Interview: https://github.com/Pegasusor001/scheduler/blob/master/screenshoot/Delete%20an%20Interview.png
