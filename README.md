@@ -21,3 +21,10 @@ npm test
 ```sh
 npm run storybook
 ```
+
+## Screen Shot 
+Home Page: 
+
+Add an Interview: 
+
+Delete an Interview:

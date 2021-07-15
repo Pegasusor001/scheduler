@@ -10,7 +10,6 @@ import Error from "components/Appointment/Error";
 
 import "components/Appointment/index.js";
 
-
 export default function Appointment(props) {
   const EMPTY = "EMPTY";
   const SHOW = "SHOW";
@@ -20,8 +19,6 @@ export default function Appointment(props) {
   const CONFIRM = 'CONFIRM';
   const EDIT = 'EDIT';
   const ERROR = 'ERROR';
-  const ERROR_SAVE = 'ERROR_SAVE'
-  const ERROR_DELETE = 'ERROR_DELETE';
 
   const { mode, transition, back } = useVisualMode(
     props.interview ? SHOW : EMPTY

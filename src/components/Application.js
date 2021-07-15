@@ -1,15 +1,12 @@
-import React, { Fragment, useState, useEffect } from "react";
-import axios from "axios"
-
+import React from "react";
 import "components/Application.scss";
 import DayList from "components/DayList";
 import Appointment from "components/Appointment/index"
 import { getAppointmentsForDay, getInterview, getInterviewersForDay } from "helpers/selectors";
 import useApplicationData from "hooks/useApplicationData";
 
-
 export default function Application(props) {
-  const {state, bookInterview, deleteInterview, setDay} = useApplicationData()
+  const {state, bookInterview, deleteInterview, setDay} = useApplicationData();
 
   const dailyAppointments = getAppointmentsForDay(state, state.day);
   const InterviewersForDay = getInterviewersForDay(state, state.day);
